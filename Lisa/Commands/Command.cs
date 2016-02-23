@@ -1,7 +1,5 @@
 ﻿using Microsoft.Speech.Recognition;
-using Microsoft.Speech.Synthesis;
 using System;
-using System.Globalization;
 
 namespace Lisa.Commands
 {
@@ -9,7 +7,10 @@ namespace Lisa.Commands
     {
         public Grammar Grammar { get; set; }
 
-        public SpeechSynthesizer Synthesizer { get; set; }
+        public virtual bool Match(SpeechRecognizedEventArgs e)
+        {
+            throw new NotSupportedException();
+        }
 
         public virtual void Do(SpeechRecognizedEventArgs e)
         {

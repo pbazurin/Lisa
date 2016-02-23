@@ -1,5 +1,4 @@
 ﻿using Microsoft.Speech.Recognition;
-using System;
 
 namespace Lisa.Commands
 {
@@ -23,17 +22,17 @@ namespace Lisa.Commands
             Grammar = new Grammar(grammarBuilder);
         }
 
+        public override bool Match(SpeechRecognizedEventArgs e)
+        {
+            return e.Result.Text.Contains("плюс");
+        }
+
         public override void Do(SpeechRecognizedEventArgs e)
         {
-            if (!e.Result.Text.Contains("плюс"))
-            {
-                return;
-            }
-
             var words = e.Result.Text.Split(' ');
-            var result = Int32.Parse(words[0]) + Int32.Parse(words[2]);
+            var result = int.Parse(words[0]) + int.Parse(words[2]);
 
-            Synthesizer.SpeakAsync(result.ToString());
+            Lisa.Speak(result.ToString());
         }
     }
 }

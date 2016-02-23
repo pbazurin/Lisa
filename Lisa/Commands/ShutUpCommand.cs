@@ -3,21 +3,22 @@ using Microsoft.Speech.Recognition;
 
 namespace Lisa.Commands
 {
-    public class HelloCommand : Command
+    public class ShutUpCommand : Command
     {
-        public HelloCommand()
+        public ShutUpCommand()
         {
-            Grammar = new Grammar(new GrammarBuilder(i18n.HelloCommand_Hello));
+            Grammar = new Grammar(new GrammarBuilder(i18n.ShutUpCommand_ShutUp));
         }
 
         public override bool Match(SpeechRecognizedEventArgs e)
         {
-            return e.Result.Text == i18n.HelloCommand_Hello;
+            return e.Result.Text == i18n.ShutUpCommand_ShutUp;
         }
 
         public override void Do(SpeechRecognizedEventArgs e)
         {
-            Lisa.Speak(i18n.HelloCommand_Hello);
+            Lisa.StopListening();
+            Lisa.StartListening();
         }
     }
 }

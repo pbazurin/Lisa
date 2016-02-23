@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -29,9 +30,7 @@ namespace Lisa
             trayIcon.ContextMenu = trayMenu;
             trayIcon.Visible = true;
 
-            var thr = new Thread(new ThreadStart(Lisa.Listen));
-            thr.IsBackground = true;
-            thr.Start();
+            Lisa.StartListening();
         }
 
         protected override void OnLoad(EventArgs e)
