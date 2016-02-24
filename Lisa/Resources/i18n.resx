@@ -132,6 +132,9 @@
   <data name="HelloCommand_Hello" xml:space="preserve">
     <value>Hello</value>
   </data>
+  <data name="MathCommand_Plus" xml:space="preserve">
+    <value>Plus</value>
+  </data>
   <data name="ShutUpCommand_ShutUp" xml:space="preserve">
     <value>Shut up</value>
   </data>

@@ -1,4 +1,5 @@
-﻿using Microsoft.Speech.Recognition;
+﻿using Lisa.Resources;
+using Microsoft.Speech.Recognition;
 
 namespace Lisa.Commands
 {
@@ -8,15 +9,15 @@ namespace Lisa.Commands
         {
             var numbers = new Choices();
 
-            numbers.Add("1");
-            numbers.Add("2");
-            numbers.Add("3");
-            numbers.Add("4");
+            for(var i = 1; i < 20; i++)
+            {
+                numbers.Add(i.ToString());
+            }
 
             var grammarBuilder = new GrammarBuilder();
 
             grammarBuilder.Append(numbers);
-            grammarBuilder.Append("плюс");
+            grammarBuilder.Append(i18n.MathCommand_Plus);
             grammarBuilder.Append(numbers);
 
             Grammar = new Grammar(grammarBuilder);
@@ -24,7 +25,7 @@ namespace Lisa.Commands
 
         public override bool Match(SpeechRecognizedEventArgs e)
         {
-            return e.Result.Text.Contains("плюс");
+            return e.Result.Text.Contains(i18n.MathCommand_Plus);
         }
 
         public override void Do(SpeechRecognizedEventArgs e)

@@ -106,6 +106,15 @@ namespace Lisa.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Plus.
+        /// </summary>
+        internal static string MathCommand_Plus {
+            get {
+                return ResourceManager.GetString("MathCommand_Plus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shut up.
         /// </summary>
         internal static string ShutUpCommand_ShutUp {

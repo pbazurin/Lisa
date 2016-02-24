@@ -11,7 +11,8 @@ namespace Lisa
             {
                 new HelloCommand(),
                 new MathCommand(),
-                new ChangeCultureCommand()
+                new ChangeCultureCommand(),
+                new ShutUpCommand()
             };
         }
     }

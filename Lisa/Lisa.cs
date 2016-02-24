@@ -1,5 +1,6 @@
 ﻿using Microsoft.Speech.Recognition;
 using Microsoft.Speech.Synthesis;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
@@ -8,10 +9,14 @@ namespace Lisa
 {
     public static class Lisa
     {
-        private static bool _isListening = false;
-        private static SpeechRecognitionEngine _recognizer = null;
-        private static SpeechSynthesizer _synthesizer = null;
-        private static Thread _listenThread = null;
+        private static SpeechRecognitionEngine _recognizer;
+        private static SpeechSynthesizer _synthesizer;
+
+        private static bool _isListening;
+        private static Thread _listenThread;
+
+        private static string _lastSpeech;
+        private static DateTime _lastSpeechTimestamp;
 
         private static object _sync = new object();
 
@@ -40,6 +45,9 @@ namespace Lisa
             Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = defaultCulture;
 
             RefreshVoice();
+
+            _lastSpeech = string.Empty;
+            _lastSpeechTimestamp = DateTime.Now;
         }
 
         public static void SetCulture(CultureInfo newCulture)
@@ -99,12 +107,19 @@ namespace Lisa
 
         public static void Speak(string textToSpeech)
         {
-            _synthesizer.SpeakAsync(textToSpeech);
+            _lastSpeech = textToSpeech;
+            _synthesizer.Speak(textToSpeech);
         }
 
         private static void OnSpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Confidence < 0.70)
+            var currentCompare = Thread.CurrentThread.CurrentCulture.CompareInfo;
+            var isSameWordsAsSpoken = e.Result.Words.All(w => currentCompare.IndexOf(_lastSpeech, w.Text, CompareOptions.IgnoreCase) != -1);
+            var isOwnSpeech = isSameWordsAsSpoken
+                && (_synthesizer.State == SynthesizerState.Speaking
+                || new TimeSpan(DateTime.Now.Ticks - _lastSpeechTimestamp.Ticks).TotalSeconds < 1);
+
+            if (e.Result.Confidence < 0.55 || isOwnSpeech)
             {
                 return;
             }
@@ -129,6 +144,16 @@ namespace Lisa
             _synthesizer.SetOutputToDefaultAudioDevice();
             _synthesizer.Rate = -2;
             _synthesizer.SelectVoiceByHints(VoiceGender.NotSet, VoiceAge.NotSet, 0, Thread.CurrentThread.CurrentCulture);
+
+            _synthesizer.StateChanged += OnStateChanged; ;
+        }
+
+        private static void OnStateChanged(object sender, StateChangedEventArgs e)
+        {
+            if (e.State == SynthesizerState.Ready && e.PreviousState == SynthesizerState.Speaking)
+            {
+                _lastSpeechTimestamp = DateTime.Now;
+            }
         }
     }
 }
