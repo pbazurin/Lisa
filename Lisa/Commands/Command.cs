@@ -5,11 +5,17 @@ namespace Lisa.Commands
 {
     public abstract class Command
     {
-        public Grammar Grammar { get; set; }
+        public GrammarBuilder GrammarBuilder { get; set; }
 
-        public virtual bool Match(SpeechRecognizedEventArgs e)
+        public virtual Grammar Grammar
         {
-            throw new NotSupportedException();
+            get
+            {
+                return new Grammar(GrammarBuilder)
+                {
+                    Name = GetType().ToString()
+                };
+            }
         }
 
         public virtual void Do(SpeechRecognizedEventArgs e)

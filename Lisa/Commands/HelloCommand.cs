@@ -7,12 +7,7 @@ namespace Lisa.Commands
     {
         public HelloCommand()
         {
-            Grammar = new Grammar(new GrammarBuilder(i18n.HelloCommand_Hello));
-        }
-
-        public override bool Match(SpeechRecognizedEventArgs e)
-        {
-            return e.Result.Text == i18n.HelloCommand_Hello;
+            GrammarBuilder = new GrammarBuilder(i18n.HelloCommand_Hello);
         }
 
         public override void Do(SpeechRecognizedEventArgs e)

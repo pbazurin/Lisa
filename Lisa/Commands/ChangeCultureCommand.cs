@@ -16,28 +16,25 @@ namespace Lisa.Commands
             var grammarBuilder = new GrammarBuilder();
 
             grammarBuilder.Append(i18n.ChangeCultureCommand_Language);
-            grammarBuilder.Append(cultures);
+            grammarBuilder.Append(new SemanticResultKey("cultureName", cultures));
 
-            Grammar = new Grammar(grammarBuilder);
-        }
-
-        public override bool Match(SpeechRecognizedEventArgs e)
-        {
-            return e.Result.Text.Contains(i18n.ChangeCultureCommand_Language);
+            GrammarBuilder = grammarBuilder;
         }
 
         public override void Do(SpeechRecognizedEventArgs e)
         {
-            var newCultureName = e.Result.Text.Replace(i18n.ChangeCultureCommand_Language, string.Empty).Trim();
-            var newCulture = new CultureInfo(newCultureName == i18n.ChangeCultureCommand_English ? "en-US" : "ru-RU");
+            var newCultureName = e.Result.Semantics["cultureName"].Value.ToString();
 
-            Lisa.SetCulture(newCulture);
-
-            var currentCultureName = newCulture.Name == "ru-RU"
-                ? i18n.ChangeCultureCommand_Russian
-                : i18n.ChangeCultureCommand_English;
-
-            Lisa.Speak(string.Format(i18n.ChangeCultureCommand_CurrentLanguage, currentCultureName));
+            if (newCultureName == i18n.ChangeCultureCommand_Russian)
+            {
+                Lisa.SetCulture(new CultureInfo("ru-RU"));
+                Lisa.Speak(string.Format(i18n.ChangeCultureCommand_CurrentLanguage, i18n.ChangeCultureCommand_Russian));
+            }
+            else
+            {
+                Lisa.SetCulture(new CultureInfo("en-US"));
+                Lisa.Speak(string.Format(i18n.ChangeCultureCommand_CurrentLanguage, i18n.ChangeCultureCommand_English));
+            }
         }
     }
 }

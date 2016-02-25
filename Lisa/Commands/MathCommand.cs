@@ -16,24 +16,19 @@ namespace Lisa.Commands
 
             var grammarBuilder = new GrammarBuilder();
 
-            grammarBuilder.Append(numbers);
+            grammarBuilder.Append(new SemanticResultKey("firstNumber", numbers));
             grammarBuilder.Append(i18n.MathCommand_Plus);
-            grammarBuilder.Append(numbers);
+            grammarBuilder.Append(new SemanticResultKey("secondNumber", numbers));
 
-            Grammar = new Grammar(grammarBuilder);
-        }
-
-        public override bool Match(SpeechRecognizedEventArgs e)
-        {
-            return e.Result.Text.Contains(i18n.MathCommand_Plus);
+            GrammarBuilder = grammarBuilder;
         }
 
         public override void Do(SpeechRecognizedEventArgs e)
         {
-            var words = e.Result.Text.Split(' ');
-            var result = int.Parse(words[0]) + int.Parse(words[2]);
+            var firstNumber = int.Parse(e.Result.Semantics["firstNumber"].Value.ToString());
+            var secondNumber = int.Parse(e.Result.Semantics["secondNumber"].Value.ToString());
 
-            Lisa.Speak(result.ToString());
+            Lisa.Speak((firstNumber + secondNumber).ToString());
         }
     }
 }

@@ -129,6 +129,9 @@
   <data name="ChangeCultureCommand_Russian" xml:space="preserve">
     <value>Русский</value>
   </data>
+  <data name="GoogleSearchCommand_Google" xml:space="preserve">
+    <value>Загугли</value>
+  </data>
   <data name="HelloCommand_Hello" xml:space="preserve">
     <value>Привет</value>
   </data>

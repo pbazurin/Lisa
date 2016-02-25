@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Commands\ChangeCultureCommand.cs" />
     <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\GoogleSearchCommand.cs" />
     <Compile Include="Commands\HelloCommand.cs" />
     <Compile Include="Commands\MathCommand.cs" />
     <Compile Include="Commands\ShutUpCommand.cs" />

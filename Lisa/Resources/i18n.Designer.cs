@@ -97,6 +97,15 @@ namespace Lisa.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Google.
+        /// </summary>
+        internal static string GoogleSearchCommand_Google {
+            get {
+                return ResourceManager.GetString("GoogleSearchCommand_Google", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
         internal static string HelloCommand_Hello {

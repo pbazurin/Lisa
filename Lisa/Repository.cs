@@ -12,7 +12,8 @@ namespace Lisa
                 new HelloCommand(),
                 new MathCommand(),
                 new ChangeCultureCommand(),
-                new ShutUpCommand()
+                new ShutUpCommand(),
+                new GoogleSearchCommand()
             };
         }
     }

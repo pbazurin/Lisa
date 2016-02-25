@@ -13,30 +13,9 @@ namespace Lisa
         private static SpeechSynthesizer _synthesizer;
 
         private static bool _isListening;
-        private static Thread _listenThread;
 
         private static string _lastSpeech;
         private static DateTime _lastSpeechTimestamp;
-
-        private static object _sync = new object();
-
-        private static bool IsListening
-        {
-            get
-            {
-                lock (_sync)
-                {
-                    return _isListening;
-                }
-            }
-            set
-            {
-                lock (_sync)
-                {
-                    _isListening = value;
-                }
-            }
-        }
 
         static Lisa()
         {
@@ -52,9 +31,9 @@ namespace Lisa
 
         public static void SetCulture(CultureInfo newCulture)
         {
-            var wasListening = IsListening;
+            var wasListening = _isListening;
 
-            if (IsListening)
+            if (_isListening)
             {
                 StopListening();
             }
@@ -63,7 +42,7 @@ namespace Lisa
 
             RefreshVoice();
 
-            if (wasListening && !IsListening)
+            if (wasListening && !_isListening)
             {
                 StartListening();
             }
@@ -71,12 +50,12 @@ namespace Lisa
 
         public static void StartListening()
         {
-            if (IsListening)
+            if (_isListening)
             {
                 return;
             }
 
-            IsListening = true;
+            _isListening = true;
 
             _recognizer = new SpeechRecognitionEngine(Thread.CurrentThread.CurrentCulture);
             _recognizer.SetInputToDefaultAudioDevice();
@@ -87,28 +66,25 @@ namespace Lisa
             _recognizer.SpeechRecognized += OnSpeechRecognized;
             _recognizer.SpeechRecognitionRejected += OnSpeechRejected;
 
-            _listenThread = new Thread(new ThreadStart(() =>
-            {
-                _recognizer.RecognizeAsync(RecognizeMode.Multiple);
-
-                while (true) { }
-            }));
-            _listenThread.IsBackground = true;
-            _listenThread.Start();
+            _recognizer.RecognizeAsync(RecognizeMode.Multiple);
         }
 
         public static void StopListening()
         {
-            IsListening = false;
+            _isListening = false;
 
             _recognizer.RecognizeAsyncStop();
-            _listenThread.Abort();
         }
 
         public static void Speak(string textToSpeech)
         {
             _lastSpeech = textToSpeech;
-            _synthesizer.Speak(textToSpeech);
+            _synthesizer.SpeakAsync(textToSpeech);
+        }
+
+        public static void StopSpeaking()
+        {
+            _synthesizer.SpeakAsyncCancelAll();
         }
 
         private static void OnSpeechRecognized(object sender, SpeechRecognizedEventArgs e)
@@ -119,7 +95,7 @@ namespace Lisa
                 && (_synthesizer.State == SynthesizerState.Speaking
                 || new TimeSpan(DateTime.Now.Ticks - _lastSpeechTimestamp.Ticks).TotalSeconds < 1);
 
-            if (e.Result.Confidence < 0.55 || isOwnSpeech)
+            if (e.Result.Confidence < 0.6 || isOwnSpeech)
             {
                 return;
             }
@@ -130,7 +106,7 @@ namespace Lisa
                 return;
             }
 
-            Repository.GetAllCommands().First(c => c.Match(e)).Do(e);
+            Repository.GetAllCommands().First(c => c.Grammar.Name == e.Result.Grammar.Name).Do(e);
         }
 
         private static void OnSpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)
