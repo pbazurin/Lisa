@@ -124,6 +124,15 @@ namespace Lisa.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Read.
+        /// </summary>
+        internal static string ReadTextCommand_Read {
+            get {
+                return ResourceManager.GetString("ReadTextCommand_Read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shut up.
         /// </summary>
         internal static string ShutUpCommand_ShutUp {

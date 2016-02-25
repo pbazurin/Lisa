@@ -138,6 +138,9 @@
   <data name="MathCommand_Plus" xml:space="preserve">
     <value>Plus</value>
   </data>
+  <data name="ReadTextCommand_Read" xml:space="preserve">
+    <value>Read</value>
+  </data>
   <data name="ShutUpCommand_ShutUp" xml:space="preserve">
     <value>Shut up</value>
   </data>

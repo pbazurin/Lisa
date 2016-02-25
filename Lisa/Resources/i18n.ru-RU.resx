@@ -130,13 +130,16 @@
     <value>Русский</value>
   </data>
   <data name="GoogleSearchCommand_Google" xml:space="preserve">
-    <value>Загугли</value>
+    <value>Гугл</value>
   </data>
   <data name="HelloCommand_Hello" xml:space="preserve">
     <value>Привет</value>
   </data>
   <data name="MathCommand_Plus" xml:space="preserve">
     <value>плюс</value>
+  </data>
+  <data name="ReadTextCommand_Read" xml:space="preserve">
+    <value>Читай</value>
   </data>
   <data name="ShutUpCommand_ShutUp" xml:space="preserve">
     <value>Тихо</value>

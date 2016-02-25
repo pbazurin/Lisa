@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
-using System.Threading;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Lisa
@@ -11,6 +13,11 @@ namespace Lisa
         [STAThread]
         public static void Main()
         {
+            if (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(Assembly.GetEntryAssembly().Location)).Count() > 1)
+            {
+                Process.GetCurrentProcess().Kill();
+            }
+
             Application.Run(new Program());
         }
 
