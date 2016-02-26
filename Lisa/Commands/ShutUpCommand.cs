@@ -1,17 +1,28 @@
-﻿using Lisa.Resources;
+﻿using Lisa.Helpers;
+using Lisa.Resources;
 using Microsoft.Speech.Recognition;
 
 namespace Lisa.Commands
 {
     public class ShutUpCommand : Command
     {
-        public ShutUpCommand()
+        public override void Init(SpeechRecognitionEngine recognizer)
         {
-            GrammarBuilder = new GrammarBuilder(i18n.ShutUpCommand_ShutUp);
+            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.ShutUpCommand_ShutUp))
+            {
+                Name = this.GetGrammarName()
+            });
+
+            recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
         }
 
-        public override void Do(SpeechRecognizedEventArgs e)
+        private void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            if (!e.Result.IsValid(this.GetGrammarName()))
+            {
+                return;
+            }
+
             Lisa.StopSpeaking();
         }
     }

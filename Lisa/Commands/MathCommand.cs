@@ -1,11 +1,12 @@
-﻿using Lisa.Resources;
+﻿using Lisa.Helpers;
+using Lisa.Resources;
 using Microsoft.Speech.Recognition;
 
 namespace Lisa.Commands
 {
     public class MathCommand : Command
     {
-        public MathCommand()
+        public override void Init(SpeechRecognitionEngine recognizer)
         {
             var numbers = new Choices();
 
@@ -20,11 +21,21 @@ namespace Lisa.Commands
             grammarBuilder.Append(i18n.MathCommand_Plus);
             grammarBuilder.Append(new SemanticResultKey("secondNumber", numbers));
 
-            GrammarBuilder = grammarBuilder;
+            recognizer.LoadGrammar(new Grammar(grammarBuilder)
+            {
+                Name = this.GetGrammarName()
+            });
+
+            recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
         }
 
-        public override void Do(SpeechRecognizedEventArgs e)
+        private void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            if (!e.Result.IsValid(this.GetGrammarName()))
+            {
+                return;
+            }
+
             var firstNumber = int.Parse(e.Result.Semantics["firstNumber"].Value.ToString());
             var secondNumber = int.Parse(e.Result.Semantics["secondNumber"].Value.ToString());
 

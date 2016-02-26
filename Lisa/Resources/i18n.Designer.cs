@@ -124,6 +124,15 @@ namespace Lisa.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        internal static string OpenPathCommand_Open {
+            get {
+                return ResourceManager.GetString("OpenPathCommand_Open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Read.
         /// </summary>
         internal static string ReadTextCommand_Read {

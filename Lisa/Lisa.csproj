@@ -62,8 +62,10 @@
     <Compile Include="Commands\OpenGoogleCommand.cs" />
     <Compile Include="Commands\HelloCommand.cs" />
     <Compile Include="Commands\MathCommand.cs" />
+    <Compile Include="Commands\OpenPathCommand.cs" />
     <Compile Include="Commands\ReadTextCommand.cs" />
     <Compile Include="Commands\ShutUpCommand.cs" />
+    <Compile Include="Helpers\RecognitionHelper.cs" />
     <Compile Include="Lisa.cs" />
     <Compile Include="Program.cs">
       <SubType>Form</SubType>

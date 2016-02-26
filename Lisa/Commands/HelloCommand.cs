@@ -1,17 +1,28 @@
-﻿using Lisa.Resources;
+﻿using Lisa.Helpers;
+using Lisa.Resources;
 using Microsoft.Speech.Recognition;
 
 namespace Lisa.Commands
 {
     public class HelloCommand : Command
     {
-        public HelloCommand()
+        public override void Init(SpeechRecognitionEngine recognizer)
         {
-            GrammarBuilder = new GrammarBuilder(i18n.HelloCommand_Hello);
+            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.HelloCommand_Hello))
+            {
+                Name = this.GetGrammarName()
+            });
+
+            recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
         }
 
-        public override void Do(SpeechRecognizedEventArgs e)
+        private void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            if (!e.Result.IsValid(this.GetGrammarName()))
+            {
+                return;
+            }
+
             Lisa.Speak(i18n.HelloCommand_Hello);
         }
     }

@@ -5,11 +5,12 @@ using System.Diagnostics;
 
 namespace Lisa.Commands
 {
-    public class OpenGoogleCommand : Command
+    public class OpenPathCommand : Command
     {
         public override void Init(SpeechRecognitionEngine recognizer)
         {
-            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.GoogleSearchCommand_Google)) {
+            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.OpenPathCommand_Open))
+            {
                 Name = this.GetGrammarName()
             });
 
@@ -23,7 +24,7 @@ namespace Lisa.Commands
                 return;
             }
 
-            Process.Start("http://google.com");
+            Process.Start("::{20d04fe0-3aea-1069-a2d8-08002b30309d}");
         }
     }
 }

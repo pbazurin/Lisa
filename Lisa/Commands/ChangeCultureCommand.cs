@@ -1,4 +1,5 @@
-﻿using Lisa.Resources;
+﻿using Lisa.Helpers;
+using Lisa.Resources;
 using Microsoft.Speech.Recognition;
 using System.Globalization;
 
@@ -6,7 +7,7 @@ namespace Lisa.Commands
 {
     public class ChangeCultureCommand : Command
     {
-        public ChangeCultureCommand()
+        public override void Init(SpeechRecognitionEngine recognizer)
         {
             var cultures = new Choices();
 
@@ -18,11 +19,21 @@ namespace Lisa.Commands
             grammarBuilder.Append(i18n.ChangeCultureCommand_Language);
             grammarBuilder.Append(new SemanticResultKey("cultureName", cultures));
 
-            GrammarBuilder = grammarBuilder;
+            recognizer.LoadGrammar(new Grammar(grammarBuilder)
+            {
+                Name = this.GetGrammarName()
+            });
+
+            recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
         }
 
-        public override void Do(SpeechRecognizedEventArgs e)
+        private void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            if (!e.Result.IsValid(this.GetGrammarName()))
+            {
+                return;
+            }
+
             var newCultureName = e.Result.Semantics["cultureName"].Value.ToString();
 
             if (newCultureName == i18n.ChangeCultureCommand_Russian)

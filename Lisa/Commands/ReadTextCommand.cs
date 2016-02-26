@@ -1,17 +1,28 @@
-﻿using Lisa.Resources;
+﻿using Lisa.Helpers;
+using Lisa.Resources;
 using Microsoft.Speech.Recognition;
 
 namespace Lisa.Commands
 {
     public class ReadTextCommand : Command
     {
-        public ReadTextCommand()
+        public override void Init(SpeechRecognitionEngine recognizer)
         {
-            GrammarBuilder = new GrammarBuilder(i18n.ReadTextCommand_Read);
+            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.ReadTextCommand_Read))
+            {
+                Name = this.GetGrammarName()
+            });
+
+            recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
         }
 
-        public override void Do(SpeechRecognizedEventArgs e)
+        private void Recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
+            if (!e.Result.IsValid(this.GetGrammarName()))
+            {
+                return;
+            }
+
             Lisa.Speak(@"Предвижу всё: вас оскорбит 
 Печальной тайны объясненье. 
 Какое горькое презренье 

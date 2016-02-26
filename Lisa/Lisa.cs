@@ -17,6 +17,8 @@ namespace Lisa
         private static string _lastSpeech;
         private static DateTime _lastSpeechTimestamp;
 
+        public const float AcceptableConfidence = 0.6F;
+
         static Lisa()
         {
             var defaultCulture = new CultureInfo("ru-RU");
@@ -61,10 +63,7 @@ namespace Lisa
             _recognizer.SetInputToDefaultAudioDevice();
 
             var commands = Repository.GetAllCommands();
-            commands.ForEach(c => _recognizer.LoadGrammar(c.Grammar));
-
-            _recognizer.SpeechRecognized += OnSpeechRecognized;
-            _recognizer.SpeechRecognitionRejected += OnSpeechRejected;
+            commands.ForEach(c => c.Init(_recognizer));
 
             _recognizer.RecognizeAsync(RecognizeMode.Multiple);
         }
@@ -87,31 +86,17 @@ namespace Lisa
             _synthesizer.SpeakAsyncCancelAll();
         }
 
-        private static void OnSpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        public static bool IsSaying(string speech)
         {
+            var words = speech.Split(' ');
+
             var currentCompare = Thread.CurrentThread.CurrentCulture.CompareInfo;
-            var isSameWordsAsSpoken = e.Result.Words.All(w => currentCompare.IndexOf(_lastSpeech, w.Text, CompareOptions.IgnoreCase) != -1);
+            var isSameWordsAsSpoken = words.All(w => currentCompare.IndexOf(_lastSpeech, w, CompareOptions.IgnoreCase) != -1);
             var isOwnSpeech = isSameWordsAsSpoken
                 && (_synthesizer.State == SynthesizerState.Speaking
                 || new TimeSpan(DateTime.Now.Ticks - _lastSpeechTimestamp.Ticks).TotalSeconds < 1);
 
-            if (e.Result.Confidence < 0.6 || isOwnSpeech)
-            {
-                return;
-            }
-
-            var recognizer = sender as SpeechRecognitionEngine;
-            if (recognizer == null)
-            {
-                return;
-            }
-
-            Repository.GetAllCommands().First(c => c.Grammar.Name == e.Result.Grammar.Name).Do(e);
-        }
-
-        private static void OnSpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)
-        {
-
+            return isOwnSpeech;
         }
 
         private static void RefreshVoice()
@@ -121,7 +106,7 @@ namespace Lisa
             _synthesizer.Rate = -2;
             _synthesizer.SelectVoiceByHints(VoiceGender.NotSet, VoiceAge.NotSet, 0, Thread.CurrentThread.CurrentCulture);
 
-            _synthesizer.StateChanged += OnStateChanged; ;
+            _synthesizer.StateChanged += OnStateChanged;
         }
 
         private static void OnStateChanged(object sender, StateChangedEventArgs e)
