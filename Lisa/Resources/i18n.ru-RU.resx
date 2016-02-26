@@ -138,6 +138,9 @@
   <data name="MathCommand_Plus" xml:space="preserve">
     <value>плюс</value>
   </data>
+  <data name="OpenPathCommand_MyComputer" xml:space="preserve">
+    <value>Мой компьютер</value>
+  </data>
   <data name="OpenPathCommand_Open" xml:space="preserve">
     <value>Открой</value>
   </data>

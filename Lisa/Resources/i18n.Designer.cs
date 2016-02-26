@@ -124,6 +124,15 @@ namespace Lisa.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My computer.
+        /// </summary>
+        internal static string OpenPathCommand_MyComputer {
+            get {
+                return ResourceManager.GetString("OpenPathCommand_MyComputer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
         internal static string OpenPathCommand_Open {
