@@ -138,6 +138,54 @@
   <data name="MathCommand_Plus" xml:space="preserve">
     <value>Plus</value>
   </data>
+  <data name="MouseAdapterCommand_Click" xml:space="preserve">
+    <value>Click</value>
+  </data>
+  <data name="MouseAdapterCommand_DecreaseStep" xml:space="preserve">
+    <value>Decrease step</value>
+  </data>
+  <data name="MouseAdapterCommand_DoubleClick" xml:space="preserve">
+    <value>Double click</value>
+  </data>
+  <data name="MouseAdapterCommand_Hold" xml:space="preserve">
+    <value>Hold</value>
+  </data>
+  <data name="MouseAdapterCommand_IncreaseStep" xml:space="preserve">
+    <value>Increase step</value>
+  </data>
+  <data name="MouseAdapterCommand_MouseAdapterIsTurnedOff" xml:space="preserve">
+    <value>Mouse adapter is turned off</value>
+  </data>
+  <data name="MouseAdapterCommand_MouseAdapterIsTurnedOn" xml:space="preserve">
+    <value>Mouse adapter is turned on</value>
+  </data>
+  <data name="MouseAdapterCommand_MoveDown" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="MouseAdapterCommand_MoveLeft" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="MouseAdapterCommand_MoveRight" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="MouseAdapterCommand_MoveUp" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="MouseAdapterCommand_Release" xml:space="preserve">
+    <value>Release</value>
+  </data>
+  <data name="MouseAdapterCommand_StepIsMaximal" xml:space="preserve">
+    <value>Current step is maximal</value>
+  </data>
+  <data name="MouseAdapterCommand_StepIsMinimal" xml:space="preserve">
+    <value>Current step is minimal</value>
+  </data>
+  <data name="MouseAdapterCommand_TurnOffMouseAdapter" xml:space="preserve">
+    <value>Turn off mouse adapter</value>
+  </data>
+  <data name="MouseAdapterCommand_TurnOnMouseAdapter" xml:space="preserve">
+    <value>Turn on mouse adapter</value>
+  </data>
   <data name="OpenPathCommand_MyComputer" xml:space="preserve">
     <value>My computer</value>
   </data>

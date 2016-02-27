@@ -138,6 +138,54 @@
   <data name="MathCommand_Plus" xml:space="preserve">
     <value>плюс</value>
   </data>
+  <data name="MouseAdapterCommand_Click" xml:space="preserve">
+    <value>Клик</value>
+  </data>
+  <data name="MouseAdapterCommand_DecreaseStep" xml:space="preserve">
+    <value>Уменьшить шаг</value>
+  </data>
+  <data name="MouseAdapterCommand_DoubleClick" xml:space="preserve">
+    <value>Двойной клик</value>
+  </data>
+  <data name="MouseAdapterCommand_Hold" xml:space="preserve">
+    <value>Держать</value>
+  </data>
+  <data name="MouseAdapterCommand_IncreaseStep" xml:space="preserve">
+    <value>Увеличить шаг</value>
+  </data>
+  <data name="MouseAdapterCommand_MouseAdapterIsTurnedOff" xml:space="preserve">
+    <value>Адаптер мыши выключен</value>
+  </data>
+  <data name="MouseAdapterCommand_MouseAdapterIsTurnedOn" xml:space="preserve">
+    <value>Адаптер мыши включен</value>
+  </data>
+  <data name="MouseAdapterCommand_MoveDown" xml:space="preserve">
+    <value>Вниз</value>
+  </data>
+  <data name="MouseAdapterCommand_MoveLeft" xml:space="preserve">
+    <value>Влево</value>
+  </data>
+  <data name="MouseAdapterCommand_MoveRight" xml:space="preserve">
+    <value>Вправо</value>
+  </data>
+  <data name="MouseAdapterCommand_MoveUp" xml:space="preserve">
+    <value>Вверх</value>
+  </data>
+  <data name="MouseAdapterCommand_Release" xml:space="preserve">
+    <value>Отпустить</value>
+  </data>
+  <data name="MouseAdapterCommand_StepIsMaximal" xml:space="preserve">
+    <value>Текущий шаг максимальный</value>
+  </data>
+  <data name="MouseAdapterCommand_StepIsMinimal" xml:space="preserve">
+    <value>Текущий шаг минимальный</value>
+  </data>
+  <data name="MouseAdapterCommand_TurnOffMouseAdapter" xml:space="preserve">
+    <value>Выключить адаптер мыши</value>
+  </data>
+  <data name="MouseAdapterCommand_TurnOnMouseAdapter" xml:space="preserve">
+    <value>Включить адаптер мыши</value>
+  </data>
   <data name="OpenPathCommand_MyComputer" xml:space="preserve">
     <value>Мой компьютер</value>
   </data>

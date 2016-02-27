@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace Lisa.Commands
 {
-    public class TypeTextCommand : Command
+    public class KeyboardAdapterCommand : Command
     {
         private static Dictionary<string, string> EnglishPhoneticAlphabet = new Dictionary<string, string>
         {
-            { "Alfa",       "a"},
+            { "Alpha",      "a"},
             { "Bravo",      "b"},
             { "Charlie",    "c"},
             { "Delta",      "d"},

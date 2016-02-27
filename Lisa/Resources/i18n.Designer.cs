@@ -124,6 +124,150 @@ namespace Lisa.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click.
+        /// </summary>
+        internal static string MouseAdapterCommand_Click {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_Click", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decrease step.
+        /// </summary>
+        internal static string MouseAdapterCommand_DecreaseStep {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_DecreaseStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Double click.
+        /// </summary>
+        internal static string MouseAdapterCommand_DoubleClick {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_DoubleClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hold.
+        /// </summary>
+        internal static string MouseAdapterCommand_Hold {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_Hold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Increase step.
+        /// </summary>
+        internal static string MouseAdapterCommand_IncreaseStep {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_IncreaseStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mouse adapter is turned off.
+        /// </summary>
+        internal static string MouseAdapterCommand_MouseAdapterIsTurnedOff {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_MouseAdapterIsTurnedOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mouse adapter is turned on.
+        /// </summary>
+        internal static string MouseAdapterCommand_MouseAdapterIsTurnedOn {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_MouseAdapterIsTurnedOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Down.
+        /// </summary>
+        internal static string MouseAdapterCommand_MoveDown {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_MoveDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Left.
+        /// </summary>
+        internal static string MouseAdapterCommand_MoveLeft {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_MoveLeft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right.
+        /// </summary>
+        internal static string MouseAdapterCommand_MoveRight {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_MoveRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Up.
+        /// </summary>
+        internal static string MouseAdapterCommand_MoveUp {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_MoveUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Release.
+        /// </summary>
+        internal static string MouseAdapterCommand_Release {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_Release", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current step is maximal.
+        /// </summary>
+        internal static string MouseAdapterCommand_StepIsMaximal {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_StepIsMaximal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current step is minimal.
+        /// </summary>
+        internal static string MouseAdapterCommand_StepIsMinimal {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_StepIsMinimal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn off mouse adapter.
+        /// </summary>
+        internal static string MouseAdapterCommand_TurnOffMouseAdapter {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_TurnOffMouseAdapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turn on mouse adapter.
+        /// </summary>
+        internal static string MouseAdapterCommand_TurnOnMouseAdapter {
+            get {
+                return ResourceManager.GetString("MouseAdapterCommand_TurnOnMouseAdapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My computer.
         /// </summary>
         internal static string OpenPathCommand_MyComputer {
