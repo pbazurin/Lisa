@@ -31,7 +31,7 @@ namespace Lisa
 
             trayIcon = new NotifyIcon();
             trayIcon.Text = "Lisa";
-            trayIcon.Icon = new Icon(SystemIcons.Information, 40, 40);
+            trayIcon.Icon = new Icon(@"Content\office_girl.ico");
 
             // Add menu to tray icon and show it.
             trayIcon.ContextMenu = trayMenu;
