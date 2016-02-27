@@ -38,13 +38,13 @@ namespace Lisa.Commands
 
             if (newCultureName == i18n.ChangeCultureCommand_Russian)
             {
-                Lisa.SetCulture(new CultureInfo("ru-RU"));
-                Lisa.Speak(string.Format(i18n.ChangeCultureCommand_CurrentLanguage, i18n.ChangeCultureCommand_Russian));
+                Lisa.Culture = new CultureInfo("ru-RU");
+                Lisa.Say(string.Format(i18n.ChangeCultureCommand_CurrentLanguage, i18n.ChangeCultureCommand_Russian));
             }
             else
             {
-                Lisa.SetCulture(new CultureInfo("en-US"));
-                Lisa.Speak(string.Format(i18n.ChangeCultureCommand_CurrentLanguage, i18n.ChangeCultureCommand_English));
+                Lisa.Culture = new CultureInfo("en-US");
+                Lisa.Say(string.Format(i18n.ChangeCultureCommand_CurrentLanguage, i18n.ChangeCultureCommand_English));
             }
         }
     }

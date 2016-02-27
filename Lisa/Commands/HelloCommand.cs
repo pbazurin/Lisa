@@ -23,7 +23,7 @@ namespace Lisa.Commands
                 return;
             }
 
-            Lisa.Speak(i18n.HelloCommand_Hello);
+            Lisa.Say(i18n.HelloCommand_Hello);
         }
     }
 }

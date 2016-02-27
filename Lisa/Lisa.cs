@@ -19,35 +19,40 @@ namespace Lisa
 
         public const float AcceptableConfidence = 0.6F;
 
+        public static CultureInfo Culture
+        {
+            get
+            {
+                return Thread.CurrentThread.CurrentCulture;
+            }
+            set
+            {
+                var wasListening = _isListening;
+
+                if (_isListening)
+                {
+                    StopListening();
+                }
+
+                Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = value;
+
+                RefreshVoice();
+
+                if (wasListening && !_isListening)
+                {
+                    StartListening();
+                }
+            }
+        }
+
         static Lisa()
         {
             var defaultCulture = new CultureInfo("ru-RU");
 
-            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = defaultCulture;
-
-            RefreshVoice();
+            Culture = defaultCulture;
 
             _lastSpeech = string.Empty;
             _lastSpeechTimestamp = DateTime.Now;
-        }
-
-        public static void SetCulture(CultureInfo newCulture)
-        {
-            var wasListening = _isListening;
-
-            if (_isListening)
-            {
-                StopListening();
-            }
-
-            Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = newCulture;
-
-            RefreshVoice();
-
-            if (wasListening && !_isListening)
-            {
-                StartListening();
-            }
         }
 
         public static void StartListening()
@@ -75,7 +80,7 @@ namespace Lisa
             _recognizer.RecognizeAsyncStop();
         }
 
-        public static void Speak(string textToSpeech)
+        public static void Say(string textToSpeech)
         {
             _lastSpeech = textToSpeech;
             _synthesizer.SpeakAsync(textToSpeech);

@@ -65,6 +65,7 @@
     <Compile Include="Commands\OpenPathCommand.cs" />
     <Compile Include="Commands\ReadTextCommand.cs" />
     <Compile Include="Commands\ShutUpCommand.cs" />
+    <Compile Include="Commands\TypeTextCommand.cs" />
     <Compile Include="Helpers\RecognitionHelper.cs" />
     <Compile Include="Lisa.cs" />
     <Compile Include="Program.cs">

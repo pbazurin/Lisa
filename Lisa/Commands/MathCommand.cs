@@ -39,7 +39,7 @@ namespace Lisa.Commands
             var firstNumber = int.Parse(e.Result.Semantics["firstNumber"].Value.ToString());
             var secondNumber = int.Parse(e.Result.Semantics["secondNumber"].Value.ToString());
 
-            Lisa.Speak((firstNumber + secondNumber).ToString());
+            Lisa.Say((firstNumber + secondNumber).ToString());
         }
     }
 }
