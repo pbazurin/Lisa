@@ -1,9 +1,9 @@
 ﻿using Microsoft.Speech.Recognition;
 using System;
 
-namespace Lisa.Commands
+namespace Lisa.Modules
 {
-    public abstract class Command
+    public abstract class AbstractModule
     {
         public virtual void Init(SpeechRecognitionEngine recognizer)
         {

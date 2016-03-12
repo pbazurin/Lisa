@@ -7,9 +7,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace Lisa.Commands
+namespace Lisa.Modules
 {
-    public class MouseAdapterCommand : Command
+    public class MouseAdapterModule : AbstractModule
     {
         [DllImport("user32.dll")]
         private static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
@@ -40,18 +40,18 @@ namespace Lisa.Commands
         {
             MouseAdapterActions = new Dictionary<string, Action>
             {
-                { i18n.MouseAdapterCommand_MoveUp,        MoveUp        },
-                { i18n.MouseAdapterCommand_MoveDown,      MoveDown      },
-                { i18n.MouseAdapterCommand_MoveLeft,      MoveLeft      },
-                { i18n.MouseAdapterCommand_MoveRight,     MoveRight     },
+                { i18n.MouseAdapterModule_MoveUp,        MoveUp        },
+                { i18n.MouseAdapterModule_MoveDown,      MoveDown      },
+                { i18n.MouseAdapterModule_MoveLeft,      MoveLeft      },
+                { i18n.MouseAdapterModule_MoveRight,     MoveRight     },
 
-                { i18n.MouseAdapterCommand_Hold,          Hold          },
-                { i18n.MouseAdapterCommand_Release,       Release       },
-                { i18n.MouseAdapterCommand_Click,         Click         },
-                { i18n.MouseAdapterCommand_DoubleClick,   DoubleClick   },
+                { i18n.MouseAdapterModule_Hold,          Hold          },
+                { i18n.MouseAdapterModule_Release,       Release       },
+                { i18n.MouseAdapterModule_Click,         Click         },
+                { i18n.MouseAdapterModule_DoubleClick,   DoubleClick   },
 
-                { i18n.MouseAdapterCommand_IncreaseStep,  IncreaseStep  },
-                { i18n.MouseAdapterCommand_DecreaseStep,  DecreaseStep  }
+                { i18n.MouseAdapterModule_IncreaseStep,  IncreaseStep  },
+                { i18n.MouseAdapterModule_DecreaseStep,  DecreaseStep  }
             };
 
             if (_isAdapterActive)
@@ -73,13 +73,13 @@ namespace Lisa.Commands
                 return;
             }
 
-            if (e.Result.Text == i18n.MouseAdapterCommand_TurnOnMouseAdapter)
+            if (e.Result.Text == i18n.MouseAdapterModule_TurnOnMouseAdapter)
             {
                 ActivateAdapter((SpeechRecognitionEngine)sender);
                 return;
             }
 
-            if (e.Result.Text == i18n.MouseAdapterCommand_TurnOffMouseAdapter)
+            if (e.Result.Text == i18n.MouseAdapterModule_TurnOffMouseAdapter)
             {
                 DeactivateAdapter((SpeechRecognitionEngine)sender);
                 return;
@@ -107,7 +107,7 @@ namespace Lisa.Commands
 
                 var choises = new Choices(MouseAdapterActions.Keys.ToArray());
 
-                choises.Add(i18n.MouseAdapterCommand_TurnOffMouseAdapter);
+                choises.Add(i18n.MouseAdapterModule_TurnOffMouseAdapter);
 
                 grammarBuilder.Append(choises);
 
@@ -121,7 +121,7 @@ namespace Lisa.Commands
 
             if (loadedGrammar != null)
             {
-                Lisa.Say(i18n.MouseAdapterCommand_MouseAdapterIsTurnedOn);
+                Lisa.Say(i18n.MouseAdapterModule_MouseAdapterIsTurnedOn);
             }
         }
 
@@ -137,7 +137,7 @@ namespace Lisa.Commands
                     recognizer.UnloadGrammar(loadedGrammar);
                 }
 
-                var grammarBuilder = new GrammarBuilder(i18n.MouseAdapterCommand_TurnOnMouseAdapter);
+                var grammarBuilder = new GrammarBuilder(i18n.MouseAdapterModule_TurnOnMouseAdapter);
 
                 recognizer.LoadGrammar(new Grammar(grammarBuilder)
                 {
@@ -149,7 +149,7 @@ namespace Lisa.Commands
 
             if(loadedGrammar != null)
             {
-                Lisa.Say(i18n.MouseAdapterCommand_MouseAdapterIsTurnedOff);
+                Lisa.Say(i18n.MouseAdapterModule_MouseAdapterIsTurnedOff);
             }
         }
 
@@ -199,7 +199,7 @@ namespace Lisa.Commands
         {
             if (_step >= MaximalStep)
             {
-                Lisa.Say(i18n.MouseAdapterCommand_StepIsMaximal);
+                Lisa.Say(i18n.MouseAdapterModule_StepIsMaximal);
                 return;
             }
 
@@ -210,7 +210,7 @@ namespace Lisa.Commands
         {
             if (_step <= MinimalStep)
             {
-                Lisa.Say(i18n.MouseAdapterCommand_StepIsMinimal);
+                Lisa.Say(i18n.MouseAdapterModule_StepIsMinimal);
                 return;
             }
 

@@ -1,4 +1,4 @@
-﻿using Lisa.Commands;
+﻿using Lisa.Modules;
 using Microsoft.Speech.Recognition;
 
 namespace Lisa.Helpers
@@ -12,9 +12,9 @@ namespace Lisa.Helpers
                 && result.Grammar.Name == grammarName;
         }
 
-        public static string GetGrammarName(this Command command)
+        public static string GetGrammarName(this AbstractModule Module)
         {
-            return command.GetType().ToString();
+            return Module.GetType().ToString();
         }
     }
 }

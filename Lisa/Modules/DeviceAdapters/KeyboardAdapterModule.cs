@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Lisa.Commands
+namespace Lisa.Modules
 {
-    public class KeyboardAdapterCommand : Command
+    public class KeyboardAdapterModule : AbstractModule
     {
         private static Dictionary<string, string> EnglishPhoneticAlphabet = new Dictionary<string, string>
         {

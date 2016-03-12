@@ -3,20 +3,20 @@ using Lisa.Resources;
 using Microsoft.Speech.Recognition;
 using System.Globalization;
 
-namespace Lisa.Commands
+namespace Lisa.Modules
 {
-    public class ChangeCultureCommand : Command
+    public class ChangeCultureModule : AbstractModule
     {
         public override void Init(SpeechRecognitionEngine recognizer)
         {
             var cultures = new Choices();
 
-            cultures.Add(i18n.ChangeCultureCommand_English);
-            cultures.Add(i18n.ChangeCultureCommand_Russian);
+            cultures.Add(i18n.ChangeCultureModule_English);
+            cultures.Add(i18n.ChangeCultureModule_Russian);
 
             var grammarBuilder = new GrammarBuilder();
 
-            grammarBuilder.Append(i18n.ChangeCultureCommand_Language);
+            grammarBuilder.Append(i18n.ChangeCultureModule_Language);
             grammarBuilder.Append(new SemanticResultKey("cultureName", cultures));
 
             recognizer.LoadGrammar(new Grammar(grammarBuilder)
@@ -36,15 +36,15 @@ namespace Lisa.Commands
 
             var newCultureName = e.Result.Semantics["cultureName"].Value.ToString();
 
-            if (newCultureName == i18n.ChangeCultureCommand_Russian)
+            if (newCultureName == i18n.ChangeCultureModule_Russian)
             {
                 Lisa.Culture = new CultureInfo("ru-RU");
-                Lisa.Say(string.Format(i18n.ChangeCultureCommand_CurrentLanguage, i18n.ChangeCultureCommand_Russian));
+                Lisa.Say(string.Format(i18n.ChangeCultureModule_CurrentLanguage, i18n.ChangeCultureModule_Russian));
             }
             else
             {
                 Lisa.Culture = new CultureInfo("en-US");
-                Lisa.Say(string.Format(i18n.ChangeCultureCommand_CurrentLanguage, i18n.ChangeCultureCommand_English));
+                Lisa.Say(string.Format(i18n.ChangeCultureModule_CurrentLanguage, i18n.ChangeCultureModule_English));
             }
         }
     }

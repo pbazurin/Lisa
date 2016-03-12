@@ -67,8 +67,8 @@ namespace Lisa
             _recognizer = new SpeechRecognitionEngine(Thread.CurrentThread.CurrentCulture);
             _recognizer.SetInputToDefaultAudioDevice();
 
-            var commands = Repository.GetAllCommands();
-            commands.ForEach(c => c.Init(_recognizer));
+            var Modules = Repository.GetAllModules();
+            Modules.ForEach(c => c.Init(_recognizer));
 
             _recognizer.RecognizeAsync(RecognizeMode.Multiple);
         }

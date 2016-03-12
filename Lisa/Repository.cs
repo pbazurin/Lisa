@@ -1,4 +1,4 @@
-﻿using Lisa.Commands;
+﻿using Lisa.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ namespace Lisa
 {
     public static class Repository
     {
-        public static Lazy<List<Command>> _commands;
+        public static Lazy<List<AbstractModule>> _Modules;
 
         static Repository()
         {
@@ -17,23 +17,23 @@ namespace Lisa
 
         public static void Reload()
         {
-            _commands = new Lazy<List<Command>>(() =>
+            _Modules = new Lazy<List<AbstractModule>>(() =>
             {
-                var result = new List<Command>();
+                var result = new List<AbstractModule>();
 
-                foreach (Type type in Assembly.GetAssembly(typeof(Command)).GetTypes()
-                    .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(Command))))
+                foreach (Type type in Assembly.GetAssembly(typeof(AbstractModule)).GetTypes()
+                    .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AbstractModule))))
                 {
-                    result.Add((Command)Activator.CreateInstance(type));
+                    result.Add((AbstractModule)Activator.CreateInstance(type));
                 }
 
                 return result;
             });
         }
 
-        public static List<Command> GetAllCommands()
+        public static List<AbstractModule> GetAllModules()
         {
-            return _commands.Value;
+            return _Modules.Value;
         }
     }
 }

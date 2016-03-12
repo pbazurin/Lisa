@@ -2,9 +2,9 @@
 using Lisa.Resources;
 using Microsoft.Speech.Recognition;
 
-namespace Lisa.Commands
+namespace Lisa.Modules
 {
-    public class MathCommand : Command
+    public class MathModule : AbstractModule
     {
         public override void Init(SpeechRecognitionEngine recognizer)
         {
@@ -18,7 +18,7 @@ namespace Lisa.Commands
             var grammarBuilder = new GrammarBuilder();
 
             grammarBuilder.Append(new SemanticResultKey("firstNumber", numbers));
-            grammarBuilder.Append(i18n.MathCommand_Plus);
+            grammarBuilder.Append(i18n.MathModule_Plus);
             grammarBuilder.Append(new SemanticResultKey("secondNumber", numbers));
 
             recognizer.LoadGrammar(new Grammar(grammarBuilder)

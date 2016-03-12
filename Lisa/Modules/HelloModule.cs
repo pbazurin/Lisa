@@ -2,13 +2,13 @@
 using Lisa.Resources;
 using Microsoft.Speech.Recognition;
 
-namespace Lisa.Commands
+namespace Lisa.Modules
 {
-    public class ShutUpCommand : Command
+    public class HelloModule : AbstractModule
     {
         public override void Init(SpeechRecognitionEngine recognizer)
         {
-            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.ShutUpCommand_ShutUp))
+            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.HelloModule_Hello))
             {
                 Name = this.GetGrammarName()
             });
@@ -23,7 +23,7 @@ namespace Lisa.Commands
                 return;
             }
 
-            Lisa.StopSpeaking();
+            Lisa.Say(i18n.HelloModule_Hello);
         }
     }
 }

@@ -2,13 +2,13 @@
 using Lisa.Resources;
 using Microsoft.Speech.Recognition;
 
-namespace Lisa.Commands
+namespace Lisa.Modules
 {
-    public class ReadTextCommand : Command
+    public class ReadTextModule : AbstractModule
     {
         public override void Init(SpeechRecognitionEngine recognizer)
         {
-            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.ReadTextCommand_Read))
+            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.ReadTextModule_Read))
             {
                 Name = this.GetGrammarName()
             });

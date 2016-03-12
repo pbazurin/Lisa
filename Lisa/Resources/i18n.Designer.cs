@@ -63,243 +63,243 @@ namespace Lisa.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Current language is {0}.
         /// </summary>
-        internal static string ChangeCultureCommand_CurrentLanguage {
+        internal static string ChangeCultureModule_CurrentLanguage {
             get {
-                return ResourceManager.GetString("ChangeCultureCommand_CurrentLanguage", resourceCulture);
+                return ResourceManager.GetString("ChangeCultureModule_CurrentLanguage", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
-        internal static string ChangeCultureCommand_English {
+        internal static string ChangeCultureModule_English {
             get {
-                return ResourceManager.GetString("ChangeCultureCommand_English", resourceCulture);
+                return ResourceManager.GetString("ChangeCultureModule_English", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
-        internal static string ChangeCultureCommand_Language {
+        internal static string ChangeCultureModule_Language {
             get {
-                return ResourceManager.GetString("ChangeCultureCommand_Language", resourceCulture);
+                return ResourceManager.GetString("ChangeCultureModule_Language", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Russian.
         /// </summary>
-        internal static string ChangeCultureCommand_Russian {
+        internal static string ChangeCultureModule_Russian {
             get {
-                return ResourceManager.GetString("ChangeCultureCommand_Russian", resourceCulture);
+                return ResourceManager.GetString("ChangeCultureModule_Russian", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Google.
         /// </summary>
-        internal static string GoogleSearchCommand_Google {
+        internal static string GoogleSearchModule_Google {
             get {
-                return ResourceManager.GetString("GoogleSearchCommand_Google", resourceCulture);
+                return ResourceManager.GetString("GoogleSearchModule_Google", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
-        internal static string HelloCommand_Hello {
+        internal static string HelloModule_Hello {
             get {
-                return ResourceManager.GetString("HelloCommand_Hello", resourceCulture);
+                return ResourceManager.GetString("HelloModule_Hello", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Plus.
         /// </summary>
-        internal static string MathCommand_Plus {
+        internal static string MathModule_Plus {
             get {
-                return ResourceManager.GetString("MathCommand_Plus", resourceCulture);
+                return ResourceManager.GetString("MathModule_Plus", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Click.
         /// </summary>
-        internal static string MouseAdapterCommand_Click {
+        internal static string MouseAdapterModule_Click {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_Click", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_Click", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Decrease step.
         /// </summary>
-        internal static string MouseAdapterCommand_DecreaseStep {
+        internal static string MouseAdapterModule_DecreaseStep {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_DecreaseStep", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_DecreaseStep", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Double click.
         /// </summary>
-        internal static string MouseAdapterCommand_DoubleClick {
+        internal static string MouseAdapterModule_DoubleClick {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_DoubleClick", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_DoubleClick", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Hold.
         /// </summary>
-        internal static string MouseAdapterCommand_Hold {
+        internal static string MouseAdapterModule_Hold {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_Hold", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_Hold", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Increase step.
         /// </summary>
-        internal static string MouseAdapterCommand_IncreaseStep {
+        internal static string MouseAdapterModule_IncreaseStep {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_IncreaseStep", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_IncreaseStep", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Mouse adapter is turned off.
         /// </summary>
-        internal static string MouseAdapterCommand_MouseAdapterIsTurnedOff {
+        internal static string MouseAdapterModule_MouseAdapterIsTurnedOff {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_MouseAdapterIsTurnedOff", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_MouseAdapterIsTurnedOff", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Mouse adapter is turned on.
         /// </summary>
-        internal static string MouseAdapterCommand_MouseAdapterIsTurnedOn {
+        internal static string MouseAdapterModule_MouseAdapterIsTurnedOn {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_MouseAdapterIsTurnedOn", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_MouseAdapterIsTurnedOn", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Down.
         /// </summary>
-        internal static string MouseAdapterCommand_MoveDown {
+        internal static string MouseAdapterModule_MoveDown {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_MoveDown", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_MoveDown", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Left.
         /// </summary>
-        internal static string MouseAdapterCommand_MoveLeft {
+        internal static string MouseAdapterModule_MoveLeft {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_MoveLeft", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_MoveLeft", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Right.
         /// </summary>
-        internal static string MouseAdapterCommand_MoveRight {
+        internal static string MouseAdapterModule_MoveRight {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_MoveRight", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_MoveRight", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Up.
         /// </summary>
-        internal static string MouseAdapterCommand_MoveUp {
+        internal static string MouseAdapterModule_MoveUp {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_MoveUp", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_MoveUp", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Release.
         /// </summary>
-        internal static string MouseAdapterCommand_Release {
+        internal static string MouseAdapterModule_Release {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_Release", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_Release", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Current step is maximal.
         /// </summary>
-        internal static string MouseAdapterCommand_StepIsMaximal {
+        internal static string MouseAdapterModule_StepIsMaximal {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_StepIsMaximal", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_StepIsMaximal", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Current step is minimal.
         /// </summary>
-        internal static string MouseAdapterCommand_StepIsMinimal {
+        internal static string MouseAdapterModule_StepIsMinimal {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_StepIsMinimal", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_StepIsMinimal", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Turn off mouse adapter.
         /// </summary>
-        internal static string MouseAdapterCommand_TurnOffMouseAdapter {
+        internal static string MouseAdapterModule_TurnOffMouseAdapter {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_TurnOffMouseAdapter", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_TurnOffMouseAdapter", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Turn on mouse adapter.
         /// </summary>
-        internal static string MouseAdapterCommand_TurnOnMouseAdapter {
+        internal static string MouseAdapterModule_TurnOnMouseAdapter {
             get {
-                return ResourceManager.GetString("MouseAdapterCommand_TurnOnMouseAdapter", resourceCulture);
+                return ResourceManager.GetString("MouseAdapterModule_TurnOnMouseAdapter", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to My computer.
         /// </summary>
-        internal static string OpenPathCommand_MyComputer {
+        internal static string OpenPathModule_MyComputer {
             get {
-                return ResourceManager.GetString("OpenPathCommand_MyComputer", resourceCulture);
+                return ResourceManager.GetString("OpenPathModule_MyComputer", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
-        internal static string OpenPathCommand_Open {
+        internal static string OpenPathModule_Open {
             get {
-                return ResourceManager.GetString("OpenPathCommand_Open", resourceCulture);
+                return ResourceManager.GetString("OpenPathModule_Open", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Read.
         /// </summary>
-        internal static string ReadTextCommand_Read {
+        internal static string ReadTextModule_Read {
             get {
-                return ResourceManager.GetString("ReadTextCommand_Read", resourceCulture);
+                return ResourceManager.GetString("ReadTextModule_Read", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Shut up.
         /// </summary>
-        internal static string ShutUpCommand_ShutUp {
+        internal static string ShutUpModule_ShutUp {
             get {
-                return ResourceManager.GetString("ShutUpCommand_ShutUp", resourceCulture);
+                return ResourceManager.GetString("ShutUpModule_ShutUp", resourceCulture);
             }
         }
     }

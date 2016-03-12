@@ -5,9 +5,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace Lisa.Commands
+namespace Lisa.Modules
 {
-    public class OpenPathCommand : Command
+    public class OpenPathModule : AbstractModule
     {
         private string _currentPath = "";
 
@@ -28,10 +28,10 @@ namespace Lisa.Commands
 
             var grammarBuilder = new GrammarBuilder();
 
-            grammarBuilder.Append(i18n.OpenPathCommand_Open);
+            grammarBuilder.Append(i18n.OpenPathModule_Open);
 
             var availableDestinations = new Choices();
-            availableDestinations.Add(i18n.OpenPathCommand_MyComputer);
+            availableDestinations.Add(i18n.OpenPathModule_MyComputer);
 
             if (string.IsNullOrEmpty(_currentPath))
             {
@@ -60,7 +60,7 @@ namespace Lisa.Commands
 
             var currentDestination = e.Result.Semantics["destination"].Value;
 
-            if (Equals(currentDestination, i18n.OpenPathCommand_MyComputer))
+            if (Equals(currentDestination, i18n.OpenPathModule_MyComputer))
             {
                 Process.Start("::{20d04fe0-3aea-1069-a2d8-08002b30309d}");
             } else

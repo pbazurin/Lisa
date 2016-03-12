@@ -1,15 +1,15 @@
 ﻿using Lisa.Helpers;
 using Lisa.Resources;
 using Microsoft.Speech.Recognition;
-using System.Diagnostics;
 
-namespace Lisa.Commands
+namespace Lisa.Modules
 {
-    public class OpenGoogleCommand : Command
+    public class ShutUpModule : AbstractModule
     {
         public override void Init(SpeechRecognitionEngine recognizer)
         {
-            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.GoogleSearchCommand_Google)) {
+            recognizer.LoadGrammar(new Grammar(new GrammarBuilder(i18n.ShutUpModule_ShutUp))
+            {
                 Name = this.GetGrammarName()
             });
 
@@ -23,7 +23,7 @@ namespace Lisa.Commands
                 return;
             }
 
-            Process.Start("http://google.com");
+            Lisa.StopSpeaking();
         }
     }
 }

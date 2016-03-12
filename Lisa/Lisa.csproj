@@ -57,16 +57,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\ChangeCultureCommand.cs" />
-    <Compile Include="Commands\Command.cs" />
-    <Compile Include="Commands\DeviceAdapters\MouseAdapterCommand.cs" />
-    <Compile Include="Commands\OpenGoogleCommand.cs" />
-    <Compile Include="Commands\HelloCommand.cs" />
-    <Compile Include="Commands\MathCommand.cs" />
-    <Compile Include="Commands\OpenPathCommand.cs" />
-    <Compile Include="Commands\ReadTextCommand.cs" />
-    <Compile Include="Commands\ShutUpCommand.cs" />
-    <Compile Include="Commands\DeviceAdapters\KeyboardAdapterCommand.cs" />
+    <Compile Include="Modules\ChangeCultureModule.cs" />
+    <Compile Include="Modules\AbstractModule.cs" />
+    <Compile Include="Modules\DeviceAdapters\MouseAdapterModule.cs" />
+    <Compile Include="Modules\OpenGoogleModule.cs" />
+    <Compile Include="Modules\HelloModule.cs" />
+    <Compile Include="Modules\MathModule.cs" />
+    <Compile Include="Modules\OpenPathModule.cs" />
+    <Compile Include="Modules\ReadTextModule.cs" />
+    <Compile Include="Modules\ShutUpModule.cs" />
+    <Compile Include="Modules\DeviceAdapters\KeyboardAdapterModule.cs" />
     <Compile Include="Helpers\RecognitionHelper.cs" />
     <Compile Include="Lisa.cs" />
     <Compile Include="Program.cs">
